@@ -1,0 +1,3 @@
+#!/bin/bash
+
+psql -c 'create database MakersAirBnbTest;' -U postgres
