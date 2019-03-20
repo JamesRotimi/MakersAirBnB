@@ -39,16 +39,35 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>2.3.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>2.3.1</version>
+			<scope>test</scope>
+		</dependency>
+    <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.thymeleaf</groupId>-->
-			<!--<artifactId>thymeleaf</artifactId>-->
-			<!--<version>3.0.11.RELEASE</version>-->
-		<!--</dependency>-->
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -56,6 +75,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>docker-spring-boot</finalName>
 	</build>
 
 </project>
