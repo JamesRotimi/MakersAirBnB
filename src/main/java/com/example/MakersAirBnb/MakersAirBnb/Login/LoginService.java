@@ -12,6 +12,19 @@ public class LoginService {
     private LoginDao loginDao;
 
     public Collection<Login> getAllLogins(){
-        return loginDao.getAllLogins();
+        return this.loginDao.getAllLogins();
     }
+
+    public Login getLoginById(int id){
+        return this.loginDao.getLoginById(id);
+    }
+
+    public void removeLoginById(int id) {
+        this.loginDao.removeLoginById(id);
+    }
+
+//    public Login removeLoginById(int id){
+//        return this.loginDao.getLoginById(id);
+//    }
+//
 }

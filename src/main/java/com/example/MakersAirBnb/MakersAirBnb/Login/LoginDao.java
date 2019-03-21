@@ -28,4 +28,12 @@ public class LoginDao {
     public Collection<Login> getAllLogins(){
         return this.logins.values();
     }
+
+    public Login getLoginById(int id){
+        return this.logins.get(id);
+    }
+
+    public void removeLoginById(int id) {
+        this.logins.remove(id);
+    }
 }
