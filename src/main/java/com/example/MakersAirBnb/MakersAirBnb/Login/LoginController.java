@@ -14,8 +14,8 @@ public class LoginController {
     private LoginService loginService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    @ResponseBody
-    public String getFoosBySimplePath() {
-        return "Get some Foos";
+    public String renderLogin() {
+        return "login";
     }
+
 }
