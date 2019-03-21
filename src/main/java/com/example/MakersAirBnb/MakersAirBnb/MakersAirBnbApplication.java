@@ -1,6 +1,8 @@
 package com.example.MakersAirBnb.MakersAirBnb;
 
 
+import com.example.MakersAirBnb.MakersAirBnb.appUser.AppUser;
+import com.example.MakersAirBnb.MakersAirBnb.appUser.AppUserRepository;
 import com.example.MakersAirBnb.MakersAirBnb.spaces.Space;
 import com.example.MakersAirBnb.MakersAirBnb.spaces.SpaceRepository;
 import org.slf4j.Logger;
@@ -25,24 +27,26 @@ public class MakersAirBnbApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(SpaceRepository repository) {
+	public CommandLineRunner demo(SpaceRepository repository, AppUserRepository appUserRepository) {
 		return (args) -> {
 			repository.deleteAll();
+			appUserRepository.deleteAll();
 
 			// save a couple of spaces
 			repository.save(new Space("Sardinia 2 bed flat",
 									  "London - Uk",
 							          "Very beautiful flat, perfect for your vacation"));
+			// save a test user
+			appUserRepository.save(new AppUser("test firstname", "test lastname", "test@email.com", "testPassword"));
 
-
-			// fetch all users.info("Spaces found with findAll():");
+			// fetch all spaces.info("Spaces found with findAll():");
 			log.info("-------------------------------");
 			for (Space space : repository.findAll()) {
 				log.info(space.toString());
 			}
 			log.info("");
 
-			// fetch an individual user by ID
+			// fetch an individual space by ID
 			repository.findById(1L)
 					.ifPresent(space -> {
 						log.info("User found with findById(1L):");

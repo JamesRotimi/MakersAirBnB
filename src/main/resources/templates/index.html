@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="head (title)">
-        <title th:text="${title}">Makers BnB</title>
-        <!--<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../css/bootstrap.min.css" />-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    </head>
-    <body>
-        <div class="container">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Makers BnB</a>
-                </div>
-            </div>
-        </nav>
-        <form>
-            <div><input type="text" name="name" placeholder="Email address"></div><br>
-            <div><input type="text" name="name" placeholder="First name"></div><br>
-            <div><input type="text" name="name" placeholder="Last name"></div><br>
-            <div><input type="text" name="name" placeholder="Create password"></div><br>
-            <div><input type="submit" value="Submit"></div><br>
-        </form>
+<head th:fragment="head (title)">
+    <title th:text="${title}">Makers BnB</title>
+    <!--<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body class="bg-light">
+
+<div class="container">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Makers BnB</a>
         </div>
-    </body>
+    </div>
+</nav>
+<form>
+
+    <div><input type="text" name="name" placeholder="Email address"></div><br>
+    <div><input type="text" name="name" placeholder="First name"></div><br>
+        <div><input type="text" name="name" placeholder="Last name"></div><br>
+            <div><input type="text" name="name" placeholder="Create password"></div><br>
+                <div><input type="submit" value="Submit"></div><br>
+
+</form>
+
+<!--<div class="container">-->
+    <!--<ul class="nav">-->
+        <!--<li><a th:href="@{/}" href="messages.html"> Messages </a></li>-->
+        <!--<li th:text="${number}"></li>-->
+    <!--</ul>-->
+<!--</div>-->
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/js/signUp.js"></script>
+
+</body>
 </html>
