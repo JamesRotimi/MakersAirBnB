@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head (title)">
-    <title th:text="${title}">Makers BnB</title>
-    <!--<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../css/bootstrap.min.css" />-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-</head>
-<body>
-<div class="container">
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Makers BnB</a>
-        </div>
-    </div>
-</nav>
-<form>
-
-    <div><input type="text" name="name" placeholder="Email address"></div><br>
-    <div><input type="text" name="name" placeholder="First name"></div><br>
-        <div><input type="text" name="name" placeholder="Last name"></div><br>
+    <head th:fragment="head (title)">
+        <title th:text="${title}">Makers BnB</title>
+        <!--<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../css/bootstrap.min.css" />-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    </head>
+    <body>
+        <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Makers BnB</a>
+                </div>
+            </div>
+        </nav>
+        <form>
+            <div><input type="text" name="name" placeholder="Email address"></div><br>
+            <div><input type="text" name="name" placeholder="First name"></div><br>
+            <div><input type="text" name="name" placeholder="Last name"></div><br>
             <div><input type="text" name="name" placeholder="Create password"></div><br>
-                <div><input type="submit" value="Submit"></div><br>
-
-</form>
-
-<!--<div class="container">-->
-    <!--<ul class="nav">-->
-        <!--<li><a th:href="@{/}" href="messages.html"> Messages </a></li>-->
-        <!--<li th:text="${number}"></li>-->
-    <!--</ul>-->
-<!--</div>-->
-</div>
-</body>
+            <div><input type="submit" value="Submit"></div><br>
+        </form>
+        </div>
+    </body>
 </html>

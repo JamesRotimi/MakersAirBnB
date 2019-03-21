@@ -2,6 +2,7 @@ package com.example.MakersAirBnb.MakersAirBnb.spaces;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,11 @@ import java.util.List;
         @RequestMapping("/space/{id}")
         public Space getSpace(@PathVariable Long id) {
             return spaceService.getSpace(id);
+        }
+
+        @RequestMapping("/listSpace")
+        public String renderListSpace() {
+            return "listSpace";
         }
 
         @RequestMapping(method = RequestMethod.POST, value = "/spaces")

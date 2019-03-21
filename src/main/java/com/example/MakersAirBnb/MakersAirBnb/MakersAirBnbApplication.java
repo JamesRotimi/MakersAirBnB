@@ -30,9 +30,9 @@ public class MakersAirBnbApplication {
 			repository.deleteAll();
 
 			// save a couple of spaces
-			repository.save(new Space("Sardinia 2 bed flat"));
-			repository.save(new Space("london flat, 3 rooms"));
-			repository.save(new Space("Sadalsjidalijdasjdalj"));
+			repository.save(new Space("Sardinia 2 bed flat",
+									  "London - Uk",
+							          "Very beautiful flat, perfect for your vacation"));
 
 
 			// fetch all users.info("Spaces found with findAll():");
