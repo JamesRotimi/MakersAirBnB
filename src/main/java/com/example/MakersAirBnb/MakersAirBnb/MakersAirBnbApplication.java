@@ -1,15 +1,11 @@
 package com.example.MakersAirBnb.MakersAirBnb;
 
-
-import com.example.MakersAirBnb.MakersAirBnb.Login.Login;
-import com.example.MakersAirBnb.MakersAirBnb.Login.LoginRepository;
 import com.example.MakersAirBnb.MakersAirBnb.spaces.Space;
 import com.example.MakersAirBnb.MakersAirBnb.spaces.SpaceRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -57,32 +53,5 @@ public class MakersAirBnbApplication {
 		};
 	}
 
-	@Bean
-	public CommandLineRunner demotwo(LoginRepository repository) {
-		return (args) -> {
-			repository.deleteAll();
 
-			// save a couple of spaces
-			repository.save(new Login("blah@gmail.com",
-					"password123"));
-
-			// fetch all users.info("Logins found with findAll():");
-			log.info("-------------------------------");
-			for (Login login : repository.findAll()) {
-				log.info(login.toString());
-			}
-			log.info("");
-
-			// fetch an individual user by ID
-			repository.findById(1L)
-					.ifPresent(login -> {
-						log.info("User found with findById(1L):");
-						log.info("--------------------------------");
-						log.info(login.toString());
-						log.info("");
-					});
-
-			log.info("");
-		};
-	}
 }

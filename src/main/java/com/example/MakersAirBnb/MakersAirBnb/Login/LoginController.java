@@ -1,21 +1,21 @@
 package com.example.MakersAirBnb.MakersAirBnb.Login;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Collection;
 
-@Controller
+@RestController
+@RequestMapping("/logins")
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String renderLogin() {
-        return "login";
+    @RequestMapping(method = RequestMethod.GET)
+    public Collection<Login> getAllLogins(){
+        return loginService.getAllLogins();
     }
-
 }
