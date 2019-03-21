@@ -5,43 +5,58 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
 public class Space {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private String text;
+    private String title;
+    private String location;
+    private String description;
 
     protected Space() {}
 
-    public Space(String text) {
-        this.text = text;
-
+    public Space(String title, String location, String description) {
+        this.title = title;
+        this.location = location;
+        this.description = description;
     }
 
     @Override
     public String toString() {
         return String.format(
-                "Space[id=%d, text='%s']",
-                id, text);
+                "Space[id=%d, title='%s', location='%s', description='%s']",
+                id, title, location, description);
     }
 
-
-    //getter for id
     public Long getId() {
         return id;
     }
 
-    //getter for text
-    public String getText() {
-        return text;
+    public String getTitle() {
+        return title;
     }
 
-    //setter for text
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
     }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }
 
