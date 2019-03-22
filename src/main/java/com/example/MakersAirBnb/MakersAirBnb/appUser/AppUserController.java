@@ -18,8 +18,9 @@ public class AppUserController {
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     @ResponseBody
-    public void addUser(AppUser appUser) {
+    public String addUser(AppUser appUser) {
         appUserService.addAppUser(appUser);
+        return "spaces";
     }
 
 }

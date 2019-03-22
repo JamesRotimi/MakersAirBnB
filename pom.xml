@@ -73,21 +73,56 @@
             <artifactId>jquery</artifactId>
             <version>3.3.1</version>
         </dependency>
-
+      
         <dependency>
+          <groupId>org.webjars</groupId>
+          <artifactId>bootstrap</artifactId>
+          <version>4.3.1</version>
+        </dependency>
+      
+        <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-params</artifactId>
+          <version>5.3.2</version>
+          <scope>test</scope>
+        </dependency>
+      
+        <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-api</artifactId>
+          <version>5.3.2</version>
+          <scope>test</scope>
+        </dependency>
+      
+        <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-engine</artifactId>
+          <version>5.3.1</version>
+          <scope>test</scope>
+        </dependency>
+      
+        <dependency>
+          <groupId>org.mockito</groupId>
+          <artifactId>mockito-core</artifactId>
+          <version>2.21.0</version>
+          <scope>test</scope>
+        </dependency>
+      
+         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
             <version>4.3.1</version>
-        </dependency>
-    </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-        <!--<finalName>docker-spring-boot</finalName>-->
-    </build>
+          </dependency
+	  </dependencies>
+           
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<finalName>docker-spring-boot</finalName>
+	</build>
 
 </project>
