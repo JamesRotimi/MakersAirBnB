@@ -1,34 +1,33 @@
 package com.example.MakersAirBnb.MakersAirBnb.Login;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.Collection;
+import java.util.List;
 
-@RestController
-@RequestMapping("/logins")
+@Controller
 public class LoginController {
 
-    @Autowired
-    private LoginService loginService;
+    private final LoginService loginService;
+    private final HttpSession session;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public Collection<Login> getAllLogins(){
-        return loginService.getAllLogins();
+    public LoginController(LoginService loginService, HttpSession session) {
+        this.loginService = loginService;
+        this.session = session;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Login getLoginById(@PathVariable("id") int id) {
-        return loginService.getLoginById(id);
+    @PostMapping("/authentication")
+    @ResponseBody
+    public Login addLogin(Login login) {
+        loginService.addLogin(login);
+        return login;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteLoginById(@PathVariable("id") int id) {
-        loginService.removeLoginById(id);
+    @GetMapping("/login")
+    public String renderLoginSpace() {
+        return "login";
     }
-
-
 }

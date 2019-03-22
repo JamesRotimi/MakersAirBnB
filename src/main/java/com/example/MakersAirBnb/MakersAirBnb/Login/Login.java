@@ -1,41 +1,44 @@
 package com.example.MakersAirBnb.MakersAirBnb.Login;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Login {
 
-    private int id;
-    private String email;
-    private String password;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
 
-    public Login(int id, String email, String password){
-        this.id = id;
-        this.email = email;
-        this.password = password;
+    private Long userId;
+    private String sessionId;
+
+    public Login(Long userId, String sessionId){
+
+        this.userId = userId;
+        this.sessionId = sessionId;
+
     }
 
-    public Login(){}
-
-    public int getId() {
-        return id;
+    @Override
+    public String toString() {
+        return String.format(
+                "Login[id=%d, userId='%s', sessionId='%s']",
+                id, userId, sessionId);
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public String getEmail() {
-        return email;
+    public String getSessionId() {
+        return sessionId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
     }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 }

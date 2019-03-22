@@ -1,5 +1,7 @@
 package com.example.MakersAirBnb.MakersAirBnb;
 
+import com.example.MakersAirBnb.MakersAirBnb.Login.Login;
+import com.example.MakersAirBnb.MakersAirBnb.Login.LoginRepository;
 import com.example.MakersAirBnb.MakersAirBnb.spaces.Space;
 import com.example.MakersAirBnb.MakersAirBnb.spaces.SpaceRepository;
 import org.slf4j.Logger;
@@ -23,9 +25,10 @@ public class MakersAirBnbApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(SpaceRepository repository) {
+	public CommandLineRunner demo(SpaceRepository repository, LoginRepository loginRepository) {
 		return (args) -> {
 			repository.deleteAll();
+			loginRepository.deleteAll();
 
 			// save a couple of spaces
 			repository.save(new Space("Sardinia 2 bed flat",
@@ -48,6 +51,15 @@ public class MakersAirBnbApplication {
 						log.info(space.toString());
 						log.info("");
 					});
+
+			//fetch login by id
+			loginRepository.findById(1L)
+				.ifPresent(login -> {
+				log.info("login found with findById(1L):");
+				log.info("--------------------------------");
+				log.info(login.toString());
+				log.info("");
+			});
 
 			log.info("");
 		};

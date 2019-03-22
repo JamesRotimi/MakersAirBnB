@@ -1,30 +1,28 @@
 package com.example.MakersAirBnb.MakersAirBnb.Login;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.MakersAirBnb.MakersAirBnb.spaces.Space;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+import java.util.List;
 
 @Service
 public class LoginService {
 
-    @Autowired
-    private LoginDao loginDao;
+    private LoginRepository loginRepository;
 
-    public Collection<Login> getAllLogins(){
-        return this.loginDao.getAllLogins();
+    public LoginService(LoginRepository loginRepository) {
+        this.loginRepository = loginRepository;
     }
 
-    public Login getLoginById(int id){
-        return this.loginDao.getLoginById(id);
+    public void addLogin(Login login) {
+        loginRepository.save(login);
     }
 
-    public void removeLoginById(int id) {
-        this.loginDao.removeLoginById(id);
+    public Login getLoginByUserId(Long userId) {
+        return loginRepository.findById(userId).orElse(null);
     }
 
-//    public Login removeLoginById(int id){
-//        return this.loginDao.getLoginById(id);
-//    }
-//
+    public void removeLoginById(Long userId) {
+        loginRepository.deleteById(userId);
+    }
 }
