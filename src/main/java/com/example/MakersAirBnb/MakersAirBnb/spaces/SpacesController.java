@@ -13,9 +13,15 @@ import java.util.List;
         @Autowired
         private SpaceService spaceService;
 
-        @RequestMapping(method = RequestMethod.GET, value = "/spaces")
-        public String renderSpaces() {
+        @RequestMapping("/spaces")
+        public String renderSpacesPage(){
             return "spaces";
+        }
+
+        @RequestMapping(method = RequestMethod.GET, value = "/listOfSpaces")
+        @ResponseBody
+        public List<Space> renderSpaces() {
+            return spaceService.getAllSpaces();
         }
 
         @RequestMapping(method = RequestMethod.GET, value = "/listSpace")
@@ -28,10 +34,11 @@ import java.util.List;
             return spaceService.getSpace(id);
         }
 
-        @RequestMapping(value = "/spaces", method = RequestMethod.POST)
+        @PostMapping(value = "/spaces")
         @ResponseBody
-        public void addSpace(Space space) {
+        public Space addSpace(Space space) {
             spaceService.addSpace(space);
+            return space;
         }
 
         @RequestMapping(method = RequestMethod.PUT, value = "/spaces/{id}")

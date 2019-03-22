@@ -6,6 +6,7 @@ $(document).ready(function() {
         var title = $.trim($('#InputTitle').val());
         var location = $.trim($('#InputLocation').val());
         var description = $.trim($('#InputDescription').val());
+//        var pictureUrl = $.trim($('#pictureUrl').val());
 
         if(!title || title=="Title") {
           alert('Please enter a title');
@@ -26,11 +27,15 @@ $(document).ready(function() {
           console.log(location);
           console.log(description);
 
-        $.post("http://localhost:8080/spaces",
-              {"title": title, "location": location, "description": description},
-               "json")
-        return true;
-
+        $.post(
+            "http://localhost:8080/spaces",
+             {"title": title, "location": location, "description": description},
+             function (response) {
+                console.log(response);
+                window.location = "/spaces"
+             },
+             "json"
+        );
     });
 
 })

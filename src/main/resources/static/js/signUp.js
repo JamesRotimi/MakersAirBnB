@@ -1,9 +1,12 @@
 $(document).ready(function() {
 
+    var submit = false;
+    var firstName = null;
+
     $('.sign-up-form').submit(function(event) {
         event.preventDefault();
 
-        var firstName = $.trim($('#InputFirstName').val());
+        firstName = $.trim($('#InputFirstName').val());
         var lastName = $.trim($('#InputLastName').val());
         var emailAddress = $.trim($('#InputEmailAddress').val());
         var password = $.trim($('#InputPassword').val());
@@ -31,8 +34,17 @@ $(document).ready(function() {
         $.post("http://localhost:8080/users",
               {"firstName": firstName, "lastName": lastName, "emailAddress": emailAddress, "password": password},
                "json")
-        return true;
+        submit = true;
+        confirm_and_redirect();
 
     });
+
+    function confirm_and_redirect(){
+        if (submit){
+          window.location = "/spaces";
+          $('#welcomeUsername').text(`Welcome, ${firstName}`);
+        };
+        return true;
+    };
 
 })
