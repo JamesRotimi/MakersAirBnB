@@ -14,31 +14,22 @@ public class Login {
     private Long id;
 
     private Long userId;
-    private String sessionId;
 
-    public Login(Long userId, String sessionId){
+    public Login(Long userId){
 
         this.userId = userId;
-        this.sessionId = sessionId;
 
     }
 
     @Override
     public String toString() {
         return String.format(
-                "Login[id=%d, userId='%s', sessionId='%s']",
-                id, userId, sessionId);
+                "Login[id=%d, userId='%s']",
+                id, userId);
     }
 
     public Long getUserId() {
         return userId;
     }
 
-    public String getSessionId() {
-        return sessionId;
-    }
-
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
-    }
 }
