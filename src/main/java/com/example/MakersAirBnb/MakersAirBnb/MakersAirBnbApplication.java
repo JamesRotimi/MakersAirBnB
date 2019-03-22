@@ -1,15 +1,17 @@
 package com.example.MakersAirBnb.MakersAirBnb;
 
 
+
 import com.example.MakersAirBnb.MakersAirBnb.appUser.AppUser;
 import com.example.MakersAirBnb.MakersAirBnb.appUser.AppUserRepository;
+import com.example.MakersAirBnb.MakersAirBnb.Login.Login;
+import com.example.MakersAirBnb.MakersAirBnb.Login.LoginRepository;
 import com.example.MakersAirBnb.MakersAirBnb.spaces.Space;
 import com.example.MakersAirBnb.MakersAirBnb.spaces.SpaceRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -27,7 +29,7 @@ public class MakersAirBnbApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(SpaceRepository repository, AppUserRepository appUserRepository) {
+	public CommandLineRunner demo(SpaceRepository repository, AppUserRepository appUserRepository, LoginRepository loginRepository) {
 		return (args) -> {
 			repository.deleteAll();
 			appUserRepository.deleteAll();
@@ -55,7 +57,18 @@ public class MakersAirBnbApplication {
 						log.info("");
 					});
 
+			//fetch login by id
+			loginRepository.findById(1L)
+				.ifPresent(login -> {
+				log.info("login found with findById(1L):");
+				log.info("--------------------------------");
+				log.info(login.toString());
+				log.info("");
+			});
+
 			log.info("");
 		};
 	}
+
+
 }
